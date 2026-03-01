@@ -1,0 +1,28 @@
+{
+    "name": "sjmb/module-environment-info",
+    "description": "Displays a configurable visual environment indicator on admin and frontend pages for Magento 2",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "SJMB",
+            "homepage": "https://sjmb.pl"
+        }
+    ],
+    "require": {
+        "php": "~8.3",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-config": "*",
+        "magento/module-store": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Sjmb\\EnvironmentInfo\\": ""
+        }
+    }
+}

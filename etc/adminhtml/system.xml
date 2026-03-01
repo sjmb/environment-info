@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+  * @copyright Copyright (c) 2026 SJMB (https://sjmb.pl)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="sjmb" translate="label" sortOrder="10">
+            <label>SJMB</label>
+        </tab>
+        <section id="sjmb_env_info" translate="label" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+            <tab>sjmb</tab>
+            <label>Environment Info</label>
+            <resource>Sjmb_EnvironmentInfo::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="mode" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Display Mode</label>
+                    <source_model>Sjmb\EnvironmentInfo\Model\Config\Source\Mode</source_model>
+                </field>
+                <field id="display_type" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Display Type</label>
+                    <source_model>Sjmb\EnvironmentInfo\Model\Config\Source\DisplayType</source_model>
+                    <depends>
+                        <field id="mode" negative="1">0</field>
+                    </depends>
+                </field>
+                <field id="allowed_domains" translate="label" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Allowed Domains</label>
+                    <frontend_model>Sjmb\EnvironmentInfo\Block\Adminhtml\System\Config\Form\Field\Domains</frontend_model>
+                    <backend_model>Sjmb\EnvironmentInfo\Model\Config\Backend\Domains</backend_model>
+                    <depends>
+                        <field id="mode">2</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

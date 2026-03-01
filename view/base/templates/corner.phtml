@@ -1,0 +1,27 @@
+<?php
+/**
+ * @copyright Copyright (c) 2026 SJMB (https://sjmb.pl)
+ */
+use Sjmb\EnvironmentInfo\Block\Adminhtml\EnvironmentInfo;
+use Magento\Framework\Escaper;
+
+/**
+ * @var EnvironmentInfo $block
+ * @var Escaper $escaper
+ */
+$triangleStyle = 'width:0;height:0;'
+    . 'border-top:90px solid rgba(255,0,0,0.5);'
+    . 'border-right:90px solid transparent';
+$labelStyle = 'position:absolute;top:10px;left:10px;font-size:10px;'
+    . 'font-weight:700;color:#ff0;white-space:nowrap;'
+    . 'user-select:none;pointer-events:none';
+?>
+<div style="position:fixed;top:0;left:0;z-index:9999;">
+    <div style="position:relative;cursor:help;"
+         title="ENV: <?= $escaper->escapeHtmlAttr($block->getHostname()) ?>">
+        <div id="sjmb-env-corner-triangle"
+             style="<?= /* @noEscape */ $triangleStyle ?>"></div>
+        <span id="sjmb-env-corner-label"
+              style="<?= /* @noEscape */ $labelStyle ?>">ENV</span>
+    </div>
+</div>

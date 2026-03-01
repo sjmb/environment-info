@@ -1,0 +1,15 @@
+<?php
+/**
+ * @copyright Copyright (c) 2026 SJMB (https://sjmb.pl)
+ */
+use Sjmb\EnvironmentInfo\Block\Adminhtml\EnvironmentInfo;
+use Magento\Framework\Escaper;
+
+/**
+ * @var EnvironmentInfo $block
+ * @var Escaper $escaper
+ */
+?>
+<script>
+    alert('ENV: <?= $escaper->escapeJs($block->getHostname()) ?>');
+</script>
